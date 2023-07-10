@@ -18,7 +18,7 @@ const SignInAdmin = () => {
             setMessage('Vui lòng nhập đầy đủ thông tin')
         }
         else {
-            axios.post(`https://thaiquoctam-webmobile.onrender.com/api/signIn`, {
+            axios.post(`http://localhost:7001/api/signIn`, {
                 Email: data.Email,
                 Mat_khau: data.Mat_khau,
                 phanQuyen: 7
