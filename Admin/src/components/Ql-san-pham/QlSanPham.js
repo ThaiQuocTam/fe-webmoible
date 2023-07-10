@@ -80,7 +80,7 @@ const QlSanPham = () => {
 
     useEffect(() => {
         if (listProduct) {
-            axios.get(`process.env.BACK_END_URL/api/get-all-product-detail`)
+            axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-all-product-detail`)
                 .then(listProductDetail => listProductDetail.data.length !== 0 ? setStateListProductDetail(listProductDetail.data) : 'không có')
                 .catch(e => console.log(e))
         }
@@ -114,7 +114,7 @@ const QlSanPham = () => {
     const handleOnClickGetMoreInfoProduct = () => {
         let pageSizeMore = pageSize + 10
         setPageSize(pageSizeMore)
-        axios.get(`process.env.BACK_END_URL/api/get-list-product?limit=${pageSizeMore}`)
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-list-product?limit=${pageSizeMore}`)
             .then(listData => setStateListProduct(listData.data))
             .catch(e => console.log(e))
     }

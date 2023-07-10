@@ -22,7 +22,7 @@ const ModalAddSlide = (props) => {
                 let dataReturn = {
                     Hinh_anh: image,
                 }
-                axios.post(`process.env.BACK_END_URL/api-post-add-slides`, { Hinh_anh: dataReturn.Hinh_anh })
+                axios.post(`https://thaiquoctam-webmobile.onrender.com/api-post-add-slides`, { Hinh_anh: dataReturn.Hinh_anh })
                     .then(mes => {
                         if (mes.data.errCode === 0) {
                             setShowSuccess(true)

@@ -13,7 +13,7 @@ const Slides = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get(`process.env.BACK_END_URL/api-get-list-slides`)
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api-get-list-slides`)
             .then(listData => setStateListSlides(listData.data))
             .catch(e => console.log(e))
     }, [])
@@ -85,7 +85,7 @@ const Slides = () => {
                                                             <button
                                                                 className='py-1 mx-auto rounded-2 shadow-soft-xxs px-10 bg-white border-2 border-green-950 text-green-950 text-3.5 hover:bg-green-950 hover:text-white'
                                                                 onClick={() => {
-                                                                    axios.post(`process.env.BACK_END_URL/api-post-delete-slides`, { idSlide: item.id })
+                                                                    axios.post(`https://thaiquoctam-webmobile.onrender.com/api-post-delete-slides`, { idSlide: item.id })
                                                                         .then(mes => {
                                                                             setShowMessDelete(true)
                                                                             mes.data.errCode === 0 && setMessage('Xóa thành công')

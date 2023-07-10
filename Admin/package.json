@@ -19,7 +19,6 @@
     "redux-actions": "^2.6.5",
     "redux-saga": "^1.2.1",
     "slick-carousel": "^1.8.1",
-    "typescript": "^5.1.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

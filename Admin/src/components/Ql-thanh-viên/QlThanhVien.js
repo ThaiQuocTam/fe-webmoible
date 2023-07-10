@@ -26,7 +26,7 @@ const QlThanhVien = () => {
             dispatch(actions.getSearchMemberAction.getSearchMemberRequest(stateValueSearchMember.Ho_ten))
         }
         else {
-            axios.get('process.env.BACK_END_URL/api/get-all-info-user')
+            axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-all-info-user`)
                 .then(listAllInfoUser => listAllInfoUser.data.length !== 0 ? setStateListAllInfoUser(listAllInfoUser.data) : '')
                 .catch(e => console.log(e))
         }
@@ -141,7 +141,7 @@ const QlThanhVien = () => {
                                                         <i
                                                             onClick={() => {
                                                                 setShowSuccess(true);
-                                                                axios.post(`process.env.BACK_END_URL/api/post-delete-member-admin`, { id: item.id })
+                                                                axios.post(`https://thaiquoctam-webmobile.onrender.com/api/post-delete-member-admin`, { id: item.id })
                                                                     .then(mess => setMessage(mess.data))
                                                                     .catch(e => console.log(e));
                                                             }}
@@ -156,7 +156,7 @@ const QlThanhVien = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
             {
                 stateShowModal &&

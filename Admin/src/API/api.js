@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'process.env.BACK_END_URL'
+const URL = 'https://thaiquoctam-webmobile.onrender.com'
 
 export const apiGetListProductType = () => axios.get(`${URL}/api/get-list-product-type`)
 export const apiGetListProductGroup = () => axios.get(`${URL}/api/get-list-product-group`)

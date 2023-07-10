@@ -9,7 +9,7 @@ const OrderDetail = () => {
     useEffect(() => {
         if (id_HD) {
             console.log('có', id_HD);
-            axios.get(`process.env.BACK_END_URL/api/get-info-oder-detail?Id_HD=${id_HD}`)
+            axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-info-oder-detail?Id_HD=${id_HD}`)
                 .then(listInfoOderDetail => listInfoOderDetail.data.length !== 0 ? setStateInfoOderDetail(listInfoOderDetail.data) : '')
                 .catch(e => console.log(e))
         }

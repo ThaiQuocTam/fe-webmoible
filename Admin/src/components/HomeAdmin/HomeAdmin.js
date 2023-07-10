@@ -11,7 +11,7 @@ const HomeAdmin = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get(`process.env.BACK_END_URL/api/get-info-oder`)
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-info-oder`)
             .then(listInfoOder => {
                 const arrOrderNew = [];
                 if (listInfoOder.data.length !== 0) {
@@ -22,7 +22,7 @@ const HomeAdmin = () => {
 
             .catch(e => console.log(e))
 
-        axios.get(`process.env.BACK_END_URL/api/get-status-order`)
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-status-order`)
             .then(listInfoStatusOrder => listInfoStatusOrder.data.length !== 0 ? setStateStatus(listInfoStatusOrder.data) : '')
             .catch(e => console.log(e))
     }, [])
@@ -119,9 +119,9 @@ const HomeAdmin = () => {
                                                                 )) : ''}
                                                             </td>
                                                             <td className="text-sm inline-block text-gray-900 font-light px-2 py-2 whitespace-nowrap text-center">
-                                                                <button onClick={() => { setHideModalMes(true); axios.put(`process.env.BACK_END_URL/api/put-confirm-order`, { id: item.id }).then(mes => setMesConfirmOrder(mes.data)) }} className="px-4 py-1 text-sm text-red-500 border-red-500 font-semibold hover:bg-red-500 hover:text-white hover:border-white border-2 rounded">Xác nhận</button>
+                                                                <button onClick={() => { setHideModalMes(true); axios.put(`https://thaiquoctam-webmobile.onrender.com/api/put-confirm-order`, { id: item.id }).then(mes => setMesConfirmOrder(mes.data)) }} className="px-4 py-1 text-sm text-red-500 border-red-500 font-semibold hover:bg-red-500 hover:text-white hover:border-white border-2 rounded">Xác nhận</button>
                                                             </td>
-                                                        </tr>
+                                                        </tr >
                                                     </>
                                                     : ''
                                             )) : ''
@@ -132,7 +132,7 @@ const HomeAdmin = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <div>
                 {
                     hideModalMes && <ModalMesOrder isClose={handleCloseModalMes} MesConfirm={mesConfirmOrder} />

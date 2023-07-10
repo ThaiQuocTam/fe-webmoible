@@ -10,13 +10,13 @@ const QlHoaDon = () => {
     const [mesDeleteOrder, setMesDeleteOrder] = useState()
     const [hideModalMes, setHideModalMes] = useState(false)
     const navigate = useNavigate()
-
     useEffect(() => {
-        axios.get(`process.env.BACK_END_URL/api/get-info-oder`)
+        const pass = true
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-info-oder`)
             .then(listInfoOder => listInfoOder.data.length !== 0 ? setInfoOder(listInfoOder.data) : '')
             .catch(e => console.log(e))
 
-        axios.get(`process.env.BACK_END_URL/api/get-status-order`)
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-status-order`)
             .then(listInfoStatusOrder => listInfoStatusOrder.data.length !== 0 ? setStateStatus(listInfoStatusOrder.data) : '')
             .catch(e => console.log(e))
     }, [])
@@ -114,9 +114,9 @@ const QlHoaDon = () => {
                                                         </td>
                                                         <td className="text-sm inline-block text-gray-900 font-light px-2 py-2 whitespace-nowrap text-center">
                                                             <i onClick={() => { localStorage.setItem('idHD', item.id); navigate('/OrderDetail') }} class="bi bi-ticket-detailed-fill mx-5 text-5 text-red-800 hover:text-red-500 cursor-pointer"></i>
-                                                            <i onClick={() => { setHideModalMes(true); axios.post(`process.env.BACK_END_URL/api/post-delete-order`, { id: item.id }).then(mes => { setMesDeleteOrder(mes.data); }) }} class="bi bi-x-octagon-fill text-5 text-blue-900 hover:text-blue-450 cursor-pointer"></i>
+                                                            <i onClick={() => { setHideModalMes(true); axios.post(`https://thaiquoctam-webmobile.onrender.com/api/post-delete-order`, { id: item.id }).then(mes => { setMesDeleteOrder(mes.data); }) }} class="bi bi-x-octagon-fill text-5 text-blue-900 hover:text-blue-450 cursor-pointer"></i>
                                                         </td>
-                                                    </tr>
+                                                    </tr >
                                                 </>
                                             )) : ''
 
@@ -126,7 +126,7 @@ const QlHoaDon = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <div>
                 {
                     hideModalMes &&
