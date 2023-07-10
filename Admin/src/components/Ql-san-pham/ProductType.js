@@ -34,7 +34,7 @@ const ProductType = () => {
     }, [listProductType])
 
     const handleSubmit = () => {
-        axios.post(`process.env.BACK_END_URL/api/post-add-product-type`, { Ten_loai_SP: stateValue })
+        axios.post(`https://thaiquoctam-webmobile.onrender.com/api/post-add-product-type`, { Ten_loai_SP: stateValue })
             .then(messSuccess => setMessage(messSuccess.data))
             .catch(messErr => console.log(messErr))
     }
@@ -59,7 +59,7 @@ const ProductType = () => {
 
     const handleSubmitEdit = () => {
         if (stateValueEdit) {
-            axios.put(`process.env.BACK_END_URL/api/put-edit-info-product-type`, stateValueEdit)
+            axios.put(`https://thaiquoctam-webmobile.onrender.com/api/put-edit-info-product-type`, stateValueEdit)
                 .then(mes => { setMessage(mes.data) })
                 .catch(e => console.log(e))
         }

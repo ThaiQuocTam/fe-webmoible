@@ -29,7 +29,7 @@ const VersionProduct = () => {
 
     useEffect(() => {
         if (idProduct) {
-            axios.get(`process.env.BACK_END_URL/api/get-info-version-product?Id_SP=${idProduct}`)
+            axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-info-version-product?Id_SP=${idProduct}`)
                 .then(dataVersion => setStateDataVersion(dataVersion.data))
                 .catch(e => console.log(e))
         }
@@ -111,7 +111,7 @@ const VersionProduct = () => {
                                             <button onClick={() => { setStateVersionProps(item); setShowModalEditInfoProduct(true) }} className="px-4 py-1 text-sm text-black border-black font-semibold hover:bg-slate-600 hover:text-white hover:border-white border-2 rounded">Sửa</button>
                                         </td>
                                         <td className="whitespace-nowrap text-center text-3.5 text-sm font-medium text-gray-900 px-2 py-2">
-                                            <button onClick={() => { axios.post(`process.env.BACK_END_URL/api/post-delete-version-product`, { id: item.id }).then(mes => { setShowModalMesDelete(true); setStateMesDeleteVersion(mes.data) }) }} className="px-4 py-1 text-sm text-black border-black font-semibold hover:bg-slate-600 hover:text-white hover:border-white border-2 rounded">xóa</button>
+                                            <button onClick={() => { axios.post(`https://thaiquoctam-webmobile.onrender.com/api/post-delete-version-product`, { id: item.id }).then(mes => { setShowModalMesDelete(true); setStateMesDeleteVersion(mes.data) }) }} className="px-4 py-1 text-sm text-black border-black font-semibold hover:bg-slate-600 hover:text-white hover:border-white border-2 rounded">xóa</button>
                                         </td>
                                     </tr>
                                 ))
