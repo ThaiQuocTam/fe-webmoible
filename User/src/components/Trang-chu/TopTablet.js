@@ -28,7 +28,7 @@ const TopTablet = () => {
     };
 
     useEffect(() => {
-        dispatch(actions.getListTopTabletAction.getListTopTabletRequest(3))
+        dispatch(actions.getListTopTabletAction.getListTopTabletRequest(2))
     }, [])
 
     useEffect(() => {
