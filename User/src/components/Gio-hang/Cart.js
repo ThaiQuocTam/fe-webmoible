@@ -32,7 +32,7 @@ const Cart = () => {
         if (listProductCartLocal) {
             let sum = 0
             listProductCartLocal.map((item) => {
-                item.email === email ? sum = sum + (item.Gia_san_pham * item.So_luong) : ''
+                if (item.email === email) { sum = sum + (item.Gia_san_pham * item.So_luong) }
             })
             setSumPayment(sum)
         }

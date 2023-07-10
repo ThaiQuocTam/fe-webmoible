@@ -132,7 +132,7 @@ const ModalBuyNow = (props) => {
                                             <p className='text-3 text-red-500 inline-block line-through'>{stateProduct ? (stateProduct.Gia_san_pham + (stateProduct.Gia_san_pham * (10 / 100))).toLocaleString() : ''} ₫</p>
                                             <div className='my-4 text-center'>
                                                 <input
-                                                    className="minus is-form  hover:text-red-500 cursor-pointer" type="button" value="-" onClick={() => { quantity <= 1 ? '' : setQuantity(pre => pre - 1) }} />
+                                                    className="minus is-form  hover:text-red-500 cursor-pointer" type="button" value="-" onClick={() => { quantity <= 1 && setQuantity(pre => pre - 1) }} />
                                                 <input aria-label="quantity" readOnly className="input-qty outline-none" max="10" min="1" name="" type="number" value={quantity} id="textbox" />
                                                 <input
                                                     className="plus is-form  hover:text-red-500 cursor-pointer" type="button" value="+" onClick={() => setQuantity(pre => pre + 1)} />

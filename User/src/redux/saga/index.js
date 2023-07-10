@@ -177,4 +177,3 @@ function* mySaga() {
 
 }
 export default mySaga
-actions.getOrderDetailAction.getOrderDetailRequest

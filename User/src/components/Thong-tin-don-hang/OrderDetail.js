@@ -52,7 +52,7 @@ const OrderDetail = () => {
                         arrIdOrder.push(item.id)
                     }
                 })
-                arrIdOrder.length !== 0 ? dispatch(actions.getOrderDetailAction.getOrderDetailRequest(arrIdOrder)) : ''
+                arrIdOrder.length !== 0 && dispatch(actions.getOrderDetailAction.getOrderDetailRequest(arrIdOrder))
             }
         } catch (e) { }
     }, [mesHasReceived || listBill])
