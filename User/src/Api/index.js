@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:7001'
+const URL = 'https://thaiquoctam-webmobile.onrender.com'
 
 export const apiSignIn = (payload) => axios.post(`${URL}/api/signIn`, payload)
 

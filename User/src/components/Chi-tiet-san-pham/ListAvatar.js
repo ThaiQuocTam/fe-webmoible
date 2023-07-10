@@ -34,7 +34,7 @@ const ListAvatar = (props) => {
     useEffect(() => {
         try {
             if (infoProduct) {
-                axios.get(`http://localhost:7001/api/get-info-version-product?Id_SP=${idProductStore}`)
+                axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-info-version-product?Id_SP=${idProductStore}`)
                     .then(dataVersion => {
                         let arrVS = []
                         let versionOrg = {
@@ -45,7 +45,7 @@ const ListAvatar = (props) => {
                         }
                         arrVS.push(versionOrg)
                         dataVersion.data.map((item) => {
-                            arrVS.includes(item) ? '' : arrVS.push(item)
+                            arrVS.includes(item) && arrVS.push(item)
                         })
                         setStateVersionProduct([...arrVS])
                     })

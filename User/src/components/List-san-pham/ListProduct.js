@@ -33,7 +33,7 @@ const ListSmartphone = () => {
     }, [idProductGroupLocal])
 
     useEffect(() => {
-        axios.get(`http://localhost:7001/api/get-smartphone?id=${idProductGroupLocal}&limit=${0}`)
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-smartphone?id=${idProductGroupLocal}&limit=${0}`)
             .then(listData => setStateAllProduct(listData.data))
             .catch(e => console.log(e))
     }, [idProductGroupLocal])
@@ -84,7 +84,7 @@ const ListSmartphone = () => {
                     </div>
                     <div className="overflow-hidden w-full" style={{ 'margin': '0 54px' }} >
                         {stateListSmartphone.map((item, index) => (
-                            <div onMouseEnter={() => { const exist = idProduct.includes(item.id); exist ? setID(item.id) : '' }} className='p-5 relative mx-3 my-5 w-56 h-96  box-shadow rounded-2 float-left' style={{ 'background-color': '#e4eded3d' }}>
+                            <div onMouseEnter={() => { const exist = idProduct.includes(item.id); exist && setID(item.id) }} className='p-5 relative mx-3 my-5 w-56 h-96  box-shadow rounded-2 float-left' style={{ 'background-color': '#e4eded3d' }}>
                                 {
                                     item.So_luong_SP <= 5 ? <LimitProduct soLuong={item.So_luong_SP} /> : ''
                                 }

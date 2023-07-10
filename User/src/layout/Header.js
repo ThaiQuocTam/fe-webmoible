@@ -40,7 +40,7 @@ const Header = () => {
         let soLuong = 0
         if (listProductCartLocal && email) {
             listProductCartLocal.map((item) => {
-                item.email === email ? soLuong = soLuong + item.So_luong : ''
+                if (item.email === email) { soLuong = soLuong + item.So_luong }
             })
         }
         setStateSoluong(soLuong)
@@ -75,7 +75,7 @@ const Header = () => {
         if (stateValueSearch !== '') {
             SetLimit(5)
             let limitProduct = 5
-            axios.get(`http://localhost:7001/api/get-search-product?Ten_san_pham=${stateValueSearch}&limit=${limitProduct}`)
+            axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-search-product?Ten_san_pham=${stateValueSearch}&limit=${limitProduct}`)
                 .then(listProduct => setStateListSearchProduct(listProduct.data))
                 .catch(e => console.log(e))
         }
@@ -87,7 +87,7 @@ const Header = () => {
     useEffect(() => {
         if (infoUserSelector) {
             setInfoUser(infoUserSelector)
-            axios.get(`http://localhost:7001/api/get-list-product`)
+            axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-list-product`)
                 .then(listData => setListProduct(listData.data))
                 .catch(e => console.log(e))
         }
@@ -96,12 +96,12 @@ const Header = () => {
     useEffect(() => {
         if (infoUser) {
             if (infoUser.Id_phan_quyen === 7) {
-                axios.get(`http://localhost:7001/api/get-info-review-not-response`)
+                axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-info-review-not-response`)
                     .then(info => setDataReview(info.data))
                     .catch(e => console.log(e))
             }
             else {
-                axios.get(`http://localhost:7001/api/get-info-review-user?Id_user=${infoUser.id}`)
+                axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-info-review-user?Id_user=${infoUser.id}`)
                     .then(reviewData => setStateDataReviewResponse(reviewData.data))
                     .catch(e => console.log(e))
             }
@@ -123,7 +123,7 @@ const Header = () => {
     const handleOnClickSeeMore = () => {
         let limitMore = limit + 5
         SetLimit(limitMore)
-        axios.get(`http://localhost:7001/api/get-search-product?Ten_san_pham=${stateValueSearch}&limit=${limitMore}`)
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api/get-search-product?Ten_san_pham=${stateValueSearch}&limit=${limitMore}`)
             .then(listProduct => setStateListSearchProduct(listProduct.data))
             .catch(e => console.log(e))
     }
@@ -247,7 +247,7 @@ const Header = () => {
                                                                                 stateDataReviewResponseUser.map((itemReview) => (
                                                                                     listProduct.map((itemProduct) => (
                                                                                         itemProduct.id === itemReview.Id_san_pham && itemReview.Checked === 0 ?
-                                                                                            <a onClick={() => { navigate(0); setShowNotification(false); localStorage.setItem("idProduct", itemProduct.id); axios.put(`http://localhost:7001/api/put-check-review-user`, { Id_review: itemReview.id }) }} href='/DetailProduct#Review'>
+                                                                                            <a onClick={() => { navigate(0); setShowNotification(false); localStorage.setItem("idProduct", itemProduct.id); axios.put(`https://thaiquoctam-webmobile.onrender.com/api/put-check-review-user`, { Id_review: itemReview.id }) }} href='/DetailProduct#Review'>
                                                                                                 <div className='mb-2 hover:bg-slate-500 hover:text-white p-2 rounded-2 relative'>
                                                                                                     <span className='text-2.5 absolute text-green-500 font-semibold mr-5 top-0 ' style={{ 'left': '-18px', 'top': '20px' }}>QTV</span>
                                                                                                     <span className='text-3.2 font-bold mr-1'>{itemReview.Ten_nguoi_dung}</span>

@@ -13,7 +13,7 @@ const Home = () => {
     const [images, setImages] = useState()
 
     useEffect(() => {
-        axios.get(`http://localhost:7001/api-get-list-slides`)
+        axios.get(`https://thaiquoctam-webmobile.onrender.com/api-get-list-slides`)
             .then(list => setImages(list.data))
             .catch(e => { })
     }, [])
