@@ -34,7 +34,7 @@ const ProductGroup = () => {
     }, [listProductGroup])
 
     const handleSubmit = () => {
-        axios.post(`http://localhost:7001/api/post-add-product-group`, { Ten_nhom: stateValue })
+        axios.post(`process.env.BACK_END_URL/api/post-add-product-group`, { Ten_nhom: stateValue })
             .then(messSuccess => setMessage(messSuccess.data))
             .catch(messErr => console.log(messErr))
     }
@@ -59,7 +59,7 @@ const ProductGroup = () => {
 
     const handleSubmitEdit = () => {
         if (stateValueEdit) {
-            axios.put(`http://localhost:7001/api/put-edit-info-product-group`, stateValueEdit)
+            axios.put(`process.env.BACK_END_URL/api/put-edit-info-product-group`, stateValueEdit)
                 .then(mes => { setMessage(mes.data) })
                 .catch(e => console.log(e))
         }

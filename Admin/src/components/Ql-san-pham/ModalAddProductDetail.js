@@ -25,7 +25,9 @@ const ModalAddProductDetail = (props) => {
     }, [idProduct])
 
     const dataSubmit = (data) => {
+        console.log();
         if (id) {
+            console.log(data);
             let image = ''
             const reader = new FileReader()
             reader.onloadend = () => {

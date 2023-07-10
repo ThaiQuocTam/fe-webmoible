@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:7001'
+const URL = 'process.env.BACK_END_URL'
 
 export const apiGetListProductType = () => axios.get(`${URL}/api/get-list-product-type`)
 export const apiGetListProductGroup = () => axios.get(`${URL}/api/get-list-product-group`)
