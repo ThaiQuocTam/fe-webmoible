@@ -45,7 +45,6 @@ const ModalThemSP = ({ isClose }) => {
                 setStateDataProductType(dataListProDuctType)
             }
         } catch (e) {
-            console.log('');
         }
     }, [dataListProDuctType])
 
@@ -55,11 +54,12 @@ const ModalThemSP = ({ isClose }) => {
                 setStateDataProductGroup(dataListProDuctGroup)
             }
         } catch (e) {
-            console.log('');
         }
     }, [dataListProDuctGroup])
 
     const dataSubmit = (data) => {
+        console.log(data.Id_loai_SP);
+        console.log(data.Id_nhom_SP);
         let image = ''
         const reader = new FileReader()
         reader.onloadend = () => {
@@ -177,7 +177,7 @@ const ModalThemSP = ({ isClose }) => {
                                     <label className='inline-block w-1/2 text-gray-900 text-3.5 font-semibold'>Loại sản phẩm : </label>
                                     <select
                                         className='w-1/2 px-7 shadow-soft-xxs text-3.5 border-2 py-2 outline-none text-slate-800 font-medium rounded-2'
-                                        {...register('Id_loai_SP', { required: false })}
+                                        {...register('Id_loai_SP', { required: true })}
                                     >
                                         {
                                             stateDataProductType.map((item) => (

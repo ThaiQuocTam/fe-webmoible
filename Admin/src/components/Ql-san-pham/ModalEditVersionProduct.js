@@ -41,7 +41,7 @@ const ModalEditVersionProduct = (props) => {
 
     const handleSubmitData = () => {
         setShowModalMesEdit(true)
-        axios.put(`http://localhost:7001/api/put-edit-version-product`, stateVersionProduct)
+        axios.put(`process.env.BACK_END_URL/api/put-edit-version-product`, stateVersionProduct)
             .then(message => setStateMesEditVersion(message.data))
             .catch(e => console.log(e))
     }

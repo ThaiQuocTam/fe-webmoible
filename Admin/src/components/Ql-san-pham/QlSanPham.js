@@ -80,7 +80,7 @@ const QlSanPham = () => {
 
     useEffect(() => {
         if (listProduct) {
-            axios.get(`http://localhost:7001/api/get-all-product-detail`)
+            axios.get(`process.env.BACK_END_URL/api/get-all-product-detail`)
                 .then(listProductDetail => listProductDetail.data.length !== 0 ? setStateListProductDetail(listProductDetail.data) : 'không có')
                 .catch(e => console.log(e))
         }
@@ -114,7 +114,7 @@ const QlSanPham = () => {
     const handleOnClickGetMoreInfoProduct = () => {
         let pageSizeMore = pageSize + 10
         setPageSize(pageSizeMore)
-        axios.get(`http://localhost:7001/api/get-list-product?limit=${pageSizeMore}`)
+        axios.get(`process.env.BACK_END_URL/api/get-list-product?limit=${pageSizeMore}`)
             .then(listData => setStateListProduct(listData.data))
             .catch(e => console.log(e))
     }
@@ -227,7 +227,8 @@ const QlSanPham = () => {
 
                                                             // <Link  className="px-4 py-1 absolute top-12 text-sm text-gray-700 border-gray-700 left-1 font-semibold hover:bg-gray-700 hover:text-white hover:border-white border-2 rounded">Thêm thông số</Link>
                                                             :
-                                                            ''}
+                                                            <Link onClick={() => { setShowModalAddProductDetail(true); localStorage.setItem('id_add_product', item.id); }} className="px-4 py-1 text-sm text-gray-700 border-gray-500 font-semibold hover:bg-gray-500  hover:text-white border-2 rounded">Thêm thông Số</Link>
+                                                    }
                                                     <button onClick={() => { dispatch(actions.getInfoProductAction.getInfoProductRequest(item.id)); setShowModalEditInfoProduct(true) }} className="px-4 py-1 left-9 bottom-4 text-sm absolute text-black border-black font-semibold hover:bg-slate-600 hover:text-white hover:border-white border-2 rounded">Sửa</button>
                                                 </td>
                                             </tr>

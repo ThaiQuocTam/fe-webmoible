@@ -36,7 +36,7 @@ const ModalAddVersionProduct = (props) => {
                         Gia_phien_ban: Gia_phien_ban,
                         Anh_phien_ban: image
                     }
-                    axios.post(`http://localhost:7001/api/post-add-version-product`, returnData)
+                    axios.post(`process.env.BACK_END_URL/api/post-add-version-product`, returnData)
                         .then(mesData => { setMessage(mesData.data); setShowSuccess(true) })
                         .catch(e => console.log(e))
                 }

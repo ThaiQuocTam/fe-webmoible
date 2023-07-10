@@ -18,7 +18,7 @@ const SignInAdmin = () => {
             setMessage('Vui lòng nhập đầy đủ thông tin')
         }
         else {
-            axios.post(`http://localhost:7001/api/signIn`, {
+            axios.post(`process.env.BACK_END_URL/api/signIn`, {
                 Email: data.Email,
                 Mat_khau: data.Mat_khau,
                 phanQuyen: 7
