@@ -229,7 +229,7 @@ const Header = () => {
                                                             {
                                                                 dataReview ?
                                                                     dataReview.listReview.map((item) => (
-                                                                        listProduct.map((itemProduct => (
+                                                                        listProduct && listProduct.map((itemProduct => (
                                                                             item.Id_san_pham === itemProduct.id ?
                                                                                 <a onClick={() => localStorage.setItem("idProduct", itemProduct.id)} href='/DetailProduct#Review'>
                                                                                     <div className='mb-2 hover:bg-slate-500 hover:text-white p-2 rounded-2'>
@@ -245,8 +245,8 @@ const Header = () => {
                                                                         <>
                                                                             {
                                                                                 stateDataReviewResponseUser.map((itemReview) => (
-                                                                                    listProduct.map((itemProduct) => (
-                                                                                        itemProduct.id === itemReview.Id_san_pham && itemReview.Checked === 0 ?
+                                                                                    listProduct && listProduct.map((itemProduct) => (
+                                                                                        itemProduct.id === itemReview.Id_san_pham && itemReview.Checked === false ?
                                                                                             <a onClick={() => { navigate(0); setShowNotification(false); localStorage.setItem("idProduct", itemProduct.id); axios.put(`https://thaiquoctam-webmobile.onrender.com/api/put-check-review-user`, { Id_review: itemReview.id }) }} href='/DetailProduct#Review'>
                                                                                                 <div className='mb-2 hover:bg-slate-500 hover:text-white p-2 rounded-2 relative'>
                                                                                                     <span className='text-2.5 absolute text-green-500 font-semibold mr-5 top-0 ' style={{ 'left': '-18px', 'top': '20px' }}>QTV</span>
@@ -269,7 +269,7 @@ const Header = () => {
                                                             {
                                                                 dataReview && dataReview.listReviewNotResponse ?
                                                                     dataReview.listReviewNotResponse.map((item) => (
-                                                                        listProduct.map((itemProduct => (
+                                                                        listProduct && listProduct.map((itemProduct => (
                                                                             item.Id_san_pham === itemProduct.id ?
                                                                                 <a onClick={() => { navigate(0); setShowNotification(false); localStorage.setItem("idProduct", itemProduct.id) }} href='/DetailProduct#Review'>
                                                                                     <div className='mb-2 hover:bg-slate-500 hover:text-white p-2 rounded-2'>
@@ -285,8 +285,8 @@ const Header = () => {
                                                                         <>
                                                                             {
                                                                                 stateDataReviewResponseUser.map((itemReview) => (
-                                                                                    listProduct.map((itemProduct) => (
-                                                                                        itemProduct.id === itemReview.Id_san_pham && itemReview.Checked === 1 ?
+                                                                                    listProduct && listProduct.map((itemProduct) => (
+                                                                                        itemProduct.id === itemReview.Id_san_pham && itemReview.Checked === true ?
                                                                                             <a onClick={() => { navigate(0); setShowNotification(false); localStorage.setItem("idProduct", itemProduct.id) }} href='/DetailProduct#Review'>
                                                                                                 <div className='mb-2 hover:bg-slate-500 hover:text-white p-2 rounded-2 relative'>
                                                                                                     <span className='text-2.5 absolute text-green-500 font-semibold mr-5 top-0 ' style={{ 'left': '-18px', 'top': '20px' }}>QTV</span>

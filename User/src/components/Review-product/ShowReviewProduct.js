@@ -111,7 +111,7 @@ const ShowReviewProduct = (props) => {
                                                         Id_review_user: item.id,
                                                         Id_san_pham: props.product.id_Product
                                                     }))
-                                                    navigate(0)
+                                                    // navigate(0)
                                                     setValue('Noi_dung', '')
                                                 }
                                             })}>
