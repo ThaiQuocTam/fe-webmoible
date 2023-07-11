@@ -199,7 +199,7 @@ const Header = () => {
                                 }
                                 {
                                     (stateDataReviewResponseUser && stateDataReviewResponseUser.length !== 0) ?
-                                        stateDataReviewResponseUser.every((item) => item.Checked === 1) ? ''
+                                        stateDataReviewResponseUser.every((item) => item.Checked === true) ? ''
                                             : <i class="bi bi-circle-fill animate-spin absolute text-orange-500 text-3 right-0 cursor-pointer"></i>
                                         : ''
                                 }
