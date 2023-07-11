@@ -63,13 +63,6 @@ const ListSmartphone = () => {
         }))
     }
 
-    useEffect(() => {
-        if (stateAllProduct && stateListSmartphone && stateListSmartphone.length !== 0) {
-            console.log('all', stateAllProduct.length);
-            console.log('Group', stateListSmartphone.length);
-        }
-    }, [stateAllProduct && stateListSmartphone])
-
     return (
         <>
             <div className="bg-gray-100" style={{ 'padding': '0 70px' }}>

@@ -44,10 +44,7 @@ const ListAvatar = (props) => {
                             Anh_phien_ban: infoProduct.data.Hinh_anh
                         }
                         arrVS.push(versionOrg)
-                        dataVersion.data.map((item) => {
-                            arrVS.includes(item) && arrVS.push(item)
-                        })
-                        setStateVersionProduct([...arrVS])
+                        setStateVersionProduct([...arrVS, ...dataVersion.data])
                     })
                     .catch(e => console.log(e))
 

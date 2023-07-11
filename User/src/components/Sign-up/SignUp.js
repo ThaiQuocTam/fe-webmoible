@@ -73,15 +73,12 @@ const SignUp = (props) => {
   }
 
   useEffect(() => {
-    if (!message) {
-      console.log('Rôngx');
-    }
-    else {
+    if (message) {
       let timerId = setTimeout(() => {
         setMessage('')
       }, 3000);
-
       return () => clearTimeout(timerId)
+
     }
 
   }, [message])

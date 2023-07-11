@@ -31,12 +31,6 @@ const OrderDetail = () => {
     }
 
     useEffect(() => {
-        if (mesHasReceived) {
-            console.log(mesHasReceived);
-        }
-    }, [mesHasReceived])
-
-    useEffect(() => {
         try {
             if (listBill) {
                 let arrIdOrder = []
